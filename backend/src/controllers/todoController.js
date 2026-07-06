@@ -2,6 +2,7 @@ const todoService = require("../services/todoService");
 
 exports.createTodo = async (req, res, next) => {
     try {
+         console.log("Request Body:", req.body);
         const todo = await todoService.createTodo(req.body);
 
         res.status(201).json({
@@ -9,6 +10,7 @@ exports.createTodo = async (req, res, next) => {
             data: todo
         });
     } catch (error) {
+       
         next(error);
     }
 };
