@@ -14,7 +14,8 @@ exports.getTodoById = async (id) => {
 
 exports.updateTodo = async (id, data) => {
     return await Todo.findByIdAndUpdate(id, data, {
-        new: true
+         returnDocument: "after",
+         runValidators: true
     });
 };
 
